@@ -107,6 +107,7 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
               </span>
             </label>
             <Textarea
+              placeholder="Npr. Uvek je spreman/spremna da pomogne timu i drži rokove."
               value={uCemuDobar}
               onChange={(e) => setUCemuDobar(e.target.value)}
             />
@@ -120,6 +121,7 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
               </span>
             </label>
             <Textarea
+              placeholder="Npr. Može bolje da komunicira kada kasni sa zadatkom."
               value={staUnaprediti}
               onChange={(e) => setStaUnaprediti(e.target.value)}
             />
@@ -128,6 +130,7 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium">Slobodan tekst</label>
             <Textarea
+              placeholder="Npr. Drago mi je što radimo zajedno, nastavi ovako!"
               value={slobodniTekst}
               onChange={(e) => setSlobodniTekst(e.target.value)}
             />

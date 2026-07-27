@@ -52,6 +52,11 @@ export default function RootLayout({
         <main className="mx-auto my-4 w-[calc(100%-1.5rem)] max-w-2xl flex-1 rounded-2xl bg-background/92 shadow-sm backdrop-blur-md sm:my-8 sm:w-[calc(100%-3rem)]">
           {children}
         </main>
+        <footer className="px-4 py-6 text-center">
+          <p className="text-sm font-medium italic text-white drop-shadow-sm">
+            „Праве ствари на прави начин“
+          </p>
+        </footer>
       </body>
     </html>
   );

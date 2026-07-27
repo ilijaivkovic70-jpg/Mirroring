@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -39,14 +40,26 @@ export default async function OgledaloPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 py-10">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">
-          Moje ogledalo
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          Fidbek koji si dobio/la od ljudi iz grupe. Anoniman je — ne zna se
-          ko ga je poslao.
-        </p>
+      <div className="flex flex-col items-center gap-4 text-center">
+        <div className="relative size-36 overflow-hidden rounded-full ring-4 ring-white shadow-lg">
+          <Image
+            src="/ogledalo-mirror.jpg"
+            alt=""
+            fill
+            sizes="144px"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">
+            Moje ogledalo
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Fidbek koji si dobio/la od ljudi iz grupe. Anoniman je — ne zna se
+            ko ga je poslao.
+          </p>
+        </div>
       </div>
 
       {fidbekovi && fidbekovi.length > 0 && (
