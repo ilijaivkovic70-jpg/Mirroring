@@ -2,6 +2,17 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+function brojFidbekova(n: number) {
+  const poslednja = n % 10;
+  const poslednjeDve = n % 100;
+
+  if (poslednja === 1 && poslednjeDve !== 11) return `${n} fidbek`;
+  if ([2, 3, 4].includes(poslednja) && ![12, 13, 14].includes(poslednjeDve)) {
+    return `${n} fidbeka`;
+  }
+  return `${n} fidbekova`;
+}
+
 function formatDatum(iso: string) {
   return new Date(iso).toLocaleDateString("sr-RS", {
     day: "numeric",
@@ -37,6 +48,12 @@ export default async function OgledaloPage() {
           ko ga je poslao.
         </p>
       </div>
+
+      {fidbekovi && fidbekovi.length > 0 && (
+        <p className="text-sm font-medium text-brand">
+          Imaš {brojFidbekova(fidbekovi.length)}
+        </p>
+      )}
 
       {!fidbekovi || fidbekovi.length === 0 ? (
         <Card>
