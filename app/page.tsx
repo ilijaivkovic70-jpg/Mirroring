@@ -1,6 +1,14 @@
+import Link from "next/link";
+import { createClient } from "@/lib/supabase-server";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 px-4 py-10">
       <div className="flex flex-col gap-3 text-center sm:text-left">
@@ -25,6 +33,26 @@ export default function Home() {
           </p>
         </CardContent>
       </Card>
+
+      {user ? (
+        <Button size="lg" className="w-full sm:w-auto" render={<Link href="/dashboard" />}>
+          Idi na Dashboard
+        </Button>
+      ) : (
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <Button size="lg" className="w-full sm:w-auto" render={<Link href="/login" />}>
+            Uloguj se
+          </Button>
+          <Button
+            variant="secondary"
+            size="lg"
+            className="w-full sm:w-auto"
+            render={<Link href="/register" />}
+          >
+            Registruj se
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

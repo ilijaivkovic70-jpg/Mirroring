@@ -47,6 +47,9 @@ export function AuthStatus() {
       <span className="hidden text-sm text-muted-foreground sm:inline">
         {user.email}
       </span>
+      <Button size="sm" render={<Link href="/dashboard" />}>
+        Dashboard
+      </Button>
       <Button
         variant="ghost"
         size="sm"
