@@ -31,7 +31,7 @@ export function AuthStatus() {
 
   if (!user) {
     return (
-      <div className="ml-auto flex items-center gap-2">
+      <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
         <Button variant="ghost" size="sm" render={<Link href="/login" />}>
           Uloguj se
         </Button>
@@ -43,7 +43,7 @@ export function AuthStatus() {
   }
 
   return (
-    <div className="ml-auto flex items-center gap-2">
+    <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
       <span className="hidden text-sm text-muted-foreground sm:inline">
         {user.email}
       </span>
