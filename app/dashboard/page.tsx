@@ -15,7 +15,6 @@ export default async function DashboardPage() {
   const { data: clanovi } = await supabase
     .from("profiles")
     .select("id, ime")
-    .neq("id", user.id)
     .order("ime");
 
   return (
