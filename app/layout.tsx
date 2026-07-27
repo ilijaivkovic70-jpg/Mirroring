@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="sr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-[url('/pozadina.jpg')] bg-cover bg-center bg-no-repeat text-foreground">
         <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
           <div className="mx-auto flex min-h-14 max-w-2xl flex-wrap items-center gap-x-2 gap-y-1.5 px-4 py-2">
             <Link href="/" className="flex shrink-0 items-center gap-2">
@@ -49,7 +49,9 @@ export default function RootLayout({
             <AuthStatus />
           </div>
         </header>
-        <main className="flex-1">{children}</main>
+        <main className="mx-auto my-4 w-[calc(100%-1.5rem)] max-w-2xl flex-1 rounded-2xl bg-background/92 shadow-sm backdrop-blur-md sm:my-8 sm:w-[calc(100%-3rem)]">
+          {children}
+        </main>
       </body>
     </html>
   );
