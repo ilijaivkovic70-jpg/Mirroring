@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 
 export default function Home() {
   return (
@@ -24,30 +22,6 @@ export default function Home() {
           <p className="text-sm text-secondary-foreground">
             Fidbek mora biti konstruktivan i sa poštovanjem. Vređanje i
             omalovažavanje su strogo zabranjeni.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Prijava / registracija</CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-3">
-          <Input type="email" placeholder="tvoj@email.com" disabled />
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <Button className="w-full sm:w-auto" disabled>
-              Uloguj se
-            </Button>
-            <Button
-              variant="secondary"
-              className="w-full sm:w-auto"
-              disabled
-            >
-              Napravi nalog
-            </Button>
-          </div>
-          <p className="text-xs text-muted-foreground">
-            Registracija i login stižu u sledećoj fazi.
           </p>
         </CardContent>
       </Card>
