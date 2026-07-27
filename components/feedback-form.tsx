@@ -17,7 +17,12 @@ import {
 type Profil = {
   id: string;
   ime: string;
+  prezime: string | null;
 };
+
+function punoIme(clan: Profil) {
+  return clan.prezime ? `${clan.ime} ${clan.prezime}` : clan.ime;
+}
 
 export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
   const [izabranClan, setIzabranClan] = useState<Profil | null>(null);
@@ -78,7 +83,7 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
               items={clanovi}
               value={izabranClan}
               onValueChange={setIzabranClan}
-              itemToStringLabel={(clan: Profil) => clan.ime}
+              itemToStringLabel={punoIme}
             >
               <ComboboxInput placeholder="Otkucaj ime člana..." />
               <ComboboxContent>
@@ -86,7 +91,7 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
                 <ComboboxList>
                   {(clan: Profil) => (
                     <ComboboxItem key={clan.id} value={clan}>
-                      {clan.ime}
+                      {punoIme(clan)}
                     </ComboboxItem>
                   )}
                 </ComboboxList>

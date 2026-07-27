@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function RegisterPage() {
   const router = useRouter();
   const [ime, setIme] = useState("");
+  const [prezime, setPrezime] = useState("");
   const [email, setEmail] = useState("");
   const [sifra, setSifra] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ export default function RegisterPage() {
     if (data.user) {
       const { error: profileError } = await supabase
         .from("profiles")
-        .insert({ id: data.user.id, ime });
+        .insert({ id: data.user.id, ime, prezime });
 
       if (profileError) {
         setError(profileError.message);
@@ -72,6 +73,13 @@ export default function RegisterPage() {
               required
               value={ime}
               onChange={(e) => setIme(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="Prezime"
+              required
+              value={prezime}
+              onChange={(e) => setPrezime(e.target.value)}
             />
             <Input
               type="email"
