@@ -66,14 +66,17 @@ export function FeedbackForm({ clanovi }: { clanovi: Profil[] }) {
   }
 
   return (
-    <Card>
+    <Card className="gap-5 rounded-3xl border-0 py-8 shadow-sm">
       <CardHeader>
-        <CardTitle>Pošalji fidbek</CardTitle>
+        <CardTitle className="text-lg">Pošalji fidbek</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <div className="rounded-lg border border-brand/30 bg-secondary px-3 py-2 text-sm text-secondary-foreground">
-          Fidbek mora biti konstruktivan i sa poštovanjem. Vređanje i
-          omalovažavanje su strogo zabranjeni.
+        <div className="flex items-start gap-2.5 rounded-xl bg-accent px-4 py-3 text-sm text-secondary-foreground">
+          <span className="text-base">🤝</span>
+          <span>
+            Fidbek mora biti konstruktivan i sa poštovanjem. Vređanje i
+            omalovažavanje su strogo zabranjeni.
+          </span>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">

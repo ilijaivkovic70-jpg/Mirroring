@@ -18,8 +18,13 @@ export default async function DashboardPage() {
     .order("ime");
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 py-10">
-      <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
+    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 rounded-2xl bg-secondary px-4 py-10">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+        <p className="text-sm text-muted-foreground">
+          Pošalji iskren i konstruktivan fidbek nekom iz grupe.
+        </p>
+      </div>
       <FeedbackForm clanovi={clanovi ?? []} />
     </div>
   );

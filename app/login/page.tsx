@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,9 +39,12 @@ export default function LoginPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center gap-6 px-4 py-10">
-      <Card>
-        <CardHeader>
-          <CardTitle>Prijava</CardTitle>
+      <Card className="rounded-2xl">
+        <CardHeader className="gap-2">
+          <span className="flex size-11 items-center justify-center rounded-xl bg-secondary text-xl">
+            💚
+          </span>
+          <CardTitle className="text-xl">Prijava</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -62,6 +66,12 @@ export default function LoginPage() {
             <Button type="submit" disabled={loading} className="w-full">
               {loading ? "Prijavljivanje..." : "Uloguj se"}
             </Button>
+            <p className="text-center text-sm text-muted-foreground">
+              Nemaš nalog?{" "}
+              <Link href="/register" className="font-medium text-primary">
+                Registruj se
+              </Link>
+            </p>
           </form>
         </CardContent>
       </Card>
